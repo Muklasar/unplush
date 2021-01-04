@@ -100,7 +100,7 @@ function Layout({setSelectedImg, setShow, setItem}){
                         </RightSide>
                     </Nav>
                     <Gallery>
-                        <Photos>x
+                        <Photos>
                            
                             {
                             results.map((item)=>{
