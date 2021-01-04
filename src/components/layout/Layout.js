@@ -7,7 +7,7 @@ import { Wrapper, Box1, Box2, TopNav, LeftSide, MiddleSide, RightSide,
  
 function Layout({setSelectedImg, setShow, setItem}){
     const [results, setResults] = useState([])
-    const [value, setValue] = useState('wallpaper')
+    const [value, setValue] = useState('roads')
 
     useEffect(() =>{
         fetch(`https://api.unsplash.com/search/collections?query=${value}&client_id=0gVQbU32JNryxIsF2El6Jcxr8u98EPz8E4SGjkfUPAY`)
