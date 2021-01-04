@@ -1,6 +1,6 @@
 import React from 'react'
 import { DiscussionEmbed } from 'disqus-react';
-import { Modal } from 'react-bootstrap';
+import { Card, Modal } from 'react-bootstrap';
 
 function ModalCommentBox({show, selectedImg, setSelectedImg, setShow, item}) {
   
