@@ -21,18 +21,18 @@ function ModalCommentBox({show, selectedImg, setSelectedImg, setShow, item}) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <Card><img src={selectedImg}/></Card>
           <DiscussionEmbed
               shortname='unplush'
               config={
                   {
-                      url: {selectedImg},
-                      identifier: item.id,
-                      title: item.title,
+                      url: "https://unplush.herokuapp.com/",
+                      identifier: {item.id},
+                      title: {item.title},
                   }
               }
           />
 
-          <img src={selectedImg}/>
         </Modal.Body>
        
       </Modal>
