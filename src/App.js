@@ -1,27 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './components/layout/Layout.js';
 import { Spinner } from 'react-bootstrap';
-import styled from 'styled-components';
 import ModalCommentBox from './components/modal/Modal';
+import { SpinnerStyle } from './components/layout/LayoutStyle';
 
-export const SpinnerStyle = styled.div`
-      margin: 250px 0px 0px 650px;
-      @media (max-width: 800px) {
-        margin: 200px 0px 0px 230px;
-      }
 
-`
 const App = () => {
-  const [ spinner, setSpinner ] = useState(true);
+  const [spinner, setSpinner ] = useState(true);
+  const [selectedImg, setSelectedImg] = useState(null)
+  const [show, setShow] = useState(true);
+  const [item, setItem] = useState(null)
 
   useEffect(() => {
     setTimeout(() => setSpinner(false), 2000)
   }, []);
 
   return spinner ? <SpinnerStyle><Spinner animation="border" variant="primary" /></SpinnerStyle>
-             : <div><Layout/><ModalCommentBox/></div>
+             : <div><Layout setSelectedImg={setSelectedImg} setShow={setShow} setItem={setItem}/> 
+                    {selectedImg 
+                    &&<ModalCommentBox 
+                    show={show} 
+                    setShow={setShow} 
+                    selectedImg={selectedImg}
+                    setSelectedImg={setSelectedImg}
+                    item={item}
+                    />}
+              </div>
 };
 
 export default App;

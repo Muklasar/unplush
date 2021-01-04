@@ -233,3 +233,10 @@ export const Img = styled.img`
 
 
 `
+export const SpinnerStyle = styled.div`
+      margin: 250px 0px 0px 650px;
+      @media (max-width: 800px) {
+        margin: 200px 0px 0px 230px;
+      }
+
+`
