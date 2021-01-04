@@ -26,7 +26,7 @@ function ModalCommentBox({show, selectedImg, setSelectedImg, setShow, item}) {
               shortname='unplush'
               config={
                   {
-                      url: "https://unplush.herokuapp.com/",
+                      url: "https://unplush.herokuapp.com",
                       identifier: item.id,
                       title: item.title,
                   }
