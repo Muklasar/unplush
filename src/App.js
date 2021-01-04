@@ -17,7 +17,7 @@ const App = () => {
   const [ spinner, setSpinner ] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setSpinner(false), 1000)
+    setTimeout(() => setSpinner(false), 2000)
   }, []);
 
   return spinner ? <SpinnerStyle><Spinner animation="border" variant="primary" /></SpinnerStyle>
