@@ -101,7 +101,7 @@ function Layout({setSelectedImg, setShow, setItem}){
                     </Nav>
                     <Gallery>
                         <Photos>
-                           
+                    
                             {
                             results.map((item)=>{
                                 return <Img src={item.cover_photo.urls.small}
