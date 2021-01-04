@@ -1,6 +1,6 @@
 import React from 'react'
 import { DiscussionEmbed } from 'disqus-react';
-import { Modal } from 'react-bootstrap';
+import { Card, Modal } from 'react-bootstrap';
 
 function ModalCommentBox({show, selectedImg, setSelectedImg, setShow, item}) {
   
@@ -21,18 +21,17 @@ function ModalCommentBox({show, selectedImg, setSelectedImg, setShow, item}) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <Card><img src={selectedImg}/></Card>
           <DiscussionEmbed
               shortname='unplush'
               config={
                   {
-                      url: {selectedImg},
+                      url: "http://localhost:3000", 
                       identifier: item.id,
                       title: item.title,
                   }
               }
           />
-
-          <img src={selectedImg}/>
         </Modal.Body>
        
       </Modal>

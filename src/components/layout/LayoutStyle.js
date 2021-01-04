@@ -4,9 +4,7 @@ export const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(30, 1fr);  
     background-color: #ddd;
-    @media(max-width:800px){
-        background-color: #fff;
-    }
+    // height: 1000px auto;
 `
 
 export const Box1 = styled.div`
@@ -16,14 +14,15 @@ export const Box1 = styled.div`
     height: 660px;
     background-repeat: none;
     background-size: cover;
+    background-color: #ddd;
 `
 export const Box2 = styled.div`
     grid-column: 2/-2;
     grid-row: 1;
     background-repeat: none;
     background-size: cover;
-    background-color: white;
-    height: 1500px;
+    background-color: #ddd;
+    height: 100%;
     margin-top:60px;
     margin-bottom: 50px;
 `
@@ -207,8 +206,9 @@ export const Nav = styled.div`
 `
 export const Gallery = styled.div`
     background-color: white;
-    height: 700px;
+    height: 700px auto;
     margin-top: 25px;
+    margin-bottom: 20px;
 `
 export const Photos = styled.div`
     display: flex;
@@ -235,6 +235,7 @@ export const Img = styled.img`
 `
 export const SpinnerStyle = styled.div`
       margin: 250px 0px 0px 650px;
+      z-index: 10;
       @media (max-width: 800px) {
         margin: 200px 0px 0px 230px;
       }
