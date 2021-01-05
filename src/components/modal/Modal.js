@@ -2,11 +2,10 @@ import React from 'react'
 import { DiscussionEmbed } from 'disqus-react';
 import { Card, Modal } from 'react-bootstrap';
 
-function ModalCommentBox({show, selectedImg, setSelectedImg, setShow, item}) {
+function ModalCommentBox({show, selectedImg, setShow, item}) {
   
     const handleClose = (e) =>{ 
       setShow(false);
-      setSelectedImg(null)
     }
     return (
         <Modal
@@ -27,8 +26,8 @@ function ModalCommentBox({show, selectedImg, setSelectedImg, setShow, item}) {
               config={
                   {
                       url: "http://localhost:3000", 
-                      identifier: item.id,
-                      title: item.title,
+                      identifier: item,
+                      title: 'wallpaper',
                   }
               }
           />

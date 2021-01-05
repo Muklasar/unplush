@@ -11,11 +11,9 @@ const App = () => {
   const [selectedImg, setSelectedImg] = useState(null)
   const [show, setShow] = useState(true);
   const [item, setItem] = useState(null)
-
   useEffect(() => {
     setTimeout(() => setSpinner(false), 2000)
   }, []);
-
   return spinner ? <SpinnerStyle><Spinner animation="border" variant="primary" /></SpinnerStyle>
              : <div><Layout setSelectedImg={setSelectedImg} setShow={setShow} setItem={setItem}/> 
                     {selectedImg 
@@ -25,6 +23,7 @@ const App = () => {
                     selectedImg={selectedImg}
                     setSelectedImg={setSelectedImg}
                     item={item}
+                    setItem={setItem}
                     />}
               </div>
 };

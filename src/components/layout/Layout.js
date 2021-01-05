@@ -5,18 +5,19 @@ import { Wrapper, Box1, Box2, TopNav, LeftSide, MiddleSide, RightSide,
         Li, Link, NavButton, Banner, TextArea,Created, H1, P, Gift, SearchArea,
         Input, SearchButton, Container, Nav, Gallery, Photos, Img} from './LayoutStyle'
  
-function Layout({setSelectedImg, setShow, setItem}){
+function Layout({setSelectedImg, setShow, setItem, item}){
     const [results, setResults] = useState([])
-    const [value, setValue] = useState('wallpaper')
+    const [value, setValue] = useState('roads')
 
     useEffect(() =>{
         fetch(`https://api.unsplash.com/search/collections?query=${value}&client_id=0gVQbU32JNryxIsF2El6Jcxr8u98EPz8E4SGjkfUPAY`)
         .then(res=>res.json())
         .then(data=>{
             setResults(data.results)
-            console.log(data)
+            console.log(data.results)
+            
         })
-    }, [value])
+    }, [value]) 
     const CategoryOne = () =>{
         setValue('wallpaper')
     }
@@ -107,7 +108,7 @@ function Layout({setSelectedImg, setShow, setItem}){
                                 return <Img src={item.cover_photo.urls.small}
                                         key={item.id}
                                         onClick={()=>{setSelectedImg(item.cover_photo.urls.small);
-                                             setShow(true); setItem(item)}}/>
+                                             setShow(true); setItem(item.id)}}/>
                             })
                             }
                            
