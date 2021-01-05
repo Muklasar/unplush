@@ -15,6 +15,7 @@ export const Box1 = styled.div`
     background-repeat: none;
     background-size: cover;
     background-color: #ddd;
+
 `
 export const Box2 = styled.div`
     grid-column: 2/-2;
@@ -25,6 +26,9 @@ export const Box2 = styled.div`
     height: 100%;
     margin-top:60px;
     margin-bottom: 50px;
+    // @media (max-width: 360px) {
+    //     margin-right:5px;
+    //   }
 `
 
 export const TopNav = styled.div`
@@ -48,6 +52,11 @@ export const LeftSide = styled.div`
         margin-bottom: 5px;
         
       }
+    @media(max-width: 360px) {
+    margin-left: 0px;
+    margin-bottom: 5px;
+    
+    }
 `
 
 export const MiddleSide = styled.ul`
@@ -131,6 +140,11 @@ export const TextArea = styled.div`
         top:100px;
         left: 80px;
       }
+      @media (max-aspect-ratio: 1/1) and (max-width: 460px) {
+        position: absolute;
+        top:100px;
+        left: 50px;
+      }
 `
 export const H1 = styled.h1`
     font-size: 50px;
@@ -182,7 +196,7 @@ export const SearchButton = styled.button`
     padding:10px;
     background-color: whitesmoke;
     color: #cccc;
-    box-sizing: 0px 1px 1px 0px #eeee;
+    box-shadow: 0px 1px 1px 0px #eeee;
     outline: none; 
     &:hover{
         border: 1px solid seagreen;
@@ -194,7 +208,13 @@ export const SearchButton = styled.button`
     @media(max-width:800px){
         padding:10px;   
     }
+    @media (max-aspect-ratio: 1/1) and (max-width: 460px) {
+        padding: 9px;
+      }
 `
+
+// galary 
+
 export const Container = styled.div`
     background-color: white;
     padding: 40px 30px 20px 30px;
@@ -203,41 +223,63 @@ export const Container = styled.div`
 export const Nav = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    @media(max-width:460px){
+        flex-direction: column;
+    }
 `
+
 export const Gallery = styled.div`
     background-color: white;
     height: 700px auto;
     margin-top: 25px;
     margin-bottom: 20px;
+    @media (max-aspect-ratio: 1/1) and (max-width: 460px) {
+        margin-top: 5px;
+      }
 `
 export const Photos = styled.div`
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    @media (max-aspect-ratio: 1/1) and (max-width: 460px) {
+        flex-direction: row;
+        img {
+          width: 100%;
+          max-height: 75vh;
+          min-width: 0;
+        }
+      }
 
 
 `
 export const Img = styled.img`
     background-repeat: none;
     background-size: cover;
-    height: 250px;
+    height: 300px;
     box-sizing: border-box;
-    flex-basis: 250px;
+    flex-basis: 350px auto;
     margin-bottom: 10px;
     cursor: pointer;
     &:hover{
         padding: 5px;
         transition: 0.2s;
-    }
-    
-
-
+    }  
+    @media(max-width:360px){
+        // position: absolute;
+        padding-left:10px;
+       
+    } 
 `
+
 export const SpinnerStyle = styled.div`
       margin: 250px 0px 0px 650px;
       z-index: 10;
       @media (max-width: 800px) {
         margin: 200px 0px 0px 230px;
+      }
+      @media (max-aspect-ratio: 1/1) and (max-width: 460px) {
+        margin: 250px 0px 0px 170px;
       }
 
 `

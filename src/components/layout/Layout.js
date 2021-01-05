@@ -5,7 +5,7 @@ import { Wrapper, Box1, Box2, TopNav, LeftSide, MiddleSide, RightSide,
         Li, Link, NavButton, Banner, TextArea,Created, H1, P, Gift, SearchArea,
         Input, SearchButton, Container, Nav, Gallery, Photos, Img} from './LayoutStyle'
  
-function Layout({setSelectedImg, setShow, setItem, item}){
+function Layout({setSelectedImg, setShow, setItem}){
     const [results, setResults] = useState([])
     const [value, setValue] = useState('roads')
 
@@ -108,7 +108,8 @@ function Layout({setSelectedImg, setShow, setItem, item}){
                                 return <Img src={item.cover_photo.urls.small}
                                         key={item.id}
                                         onClick={()=>{setSelectedImg(item.cover_photo.urls.small);
-                                             setShow(true); setItem(item.id)}}/>
+                                             setShow(true); setItem(item.id)}}
+                                                />
                             })
                             }
                            
