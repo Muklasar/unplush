@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell, faUserCircle, faEllipsisH, faCamera, faGift, faThList, faTh } from '@fortawesome/free-solid-svg-icons'
 import { Wrapper, Box1, Box2, TopNav, LeftSide, MiddleSide, RightSide,
-        Li, Link, NavButton, Banner, TextArea,Created, H1, P, Gift, SearchArea,
+        Li, Link, NavButton, Banner, TextArea,Created, H1, P, Gift, Form,
         Input, SearchButton, Container, Nav, Gallery, Photos, Img} from './LayoutStyle'
  
 function Layout({setSelectedImg, setShow, setItem}){
     const [results, setResults] = useState([])
     const [value, setValue] = useState('roads')
+    const [search, setSearch] = useState('')
 
     useEffect(() =>{
         fetch(`https://api.unsplash.com/search/collections?query=${value}&client_id=0gVQbU32JNryxIsF2El6Jcxr8u98EPz8E4SGjkfUPAY`)
@@ -18,15 +19,24 @@ function Layout({setSelectedImg, setShow, setItem}){
             
         })
     }, [value]) 
-    const CategoryOne = () =>{
-        setValue('wallpaper')
+
+    let photos = null;
+    if(results){
+        photos = (
+            <Photos>
+                {
+                    results.map((item)=>{
+                        return <Img src={item.cover_photo.urls.small}
+                                key={item.id}
+                                onClick={()=>{setSelectedImg(item.cover_photo.urls.small);
+                                        setShow(true); setItem(item.id)}}
+                                />
+                    })
+                }
+            </Photos>
+        )
     }
-    const CategoryTwo = () =>{
-        setValue('Car')
-    }
-    const CategoryThree = () =>{
-        setValue('Bikes')
-    }
+    
 
     return(
         <Wrapper>
@@ -71,10 +81,10 @@ function Layout({setSelectedImg, setShow, setItem}){
                         <P>Beautiful, free photo</P>
                         <P>Gifted by world most geneous commounity of photographers.
                             <Gift><FontAwesomeIcon icon={faGift} size="lg"/></Gift></P>
-                        <SearchArea>
-                            <Input placeholder="Search..."/>
-                            <SearchButton>Search</SearchButton>
-                        </SearchArea>
+                        <Form>
+                            <Input onChange={(e)=>setSearch(e.target.value)} placeholder="Search..."/>
+                            <SearchButton onClick={()=>{setValue(search); setSearch('')}}>Search</SearchButton>
+                        </Form>
                     </TextArea>
                     <Created>@Created by Muklasar Rahaman</Created>
                 </Banner>
@@ -82,13 +92,14 @@ function Layout({setSelectedImg, setShow, setItem}){
                     <Nav>
                         <LeftSide>
                             <Li>
-                                <Link onClick={CategoryOne}>Wallpaper</Link>
+                                <Link alt={value === 'wallpaper'}
+                                    onClick={()=>setValue('wallpaper')}>Wallpaper</Link>
                             </Li>
                             <Li>
-                                <Link onClick={CategoryTwo}>Car</Link>
+                                <Link alt={value  === 'car'} onClick={()=>setValue('car')}>Car</Link>
                             </Li>
                             <Li>
-                                <Link onClick={CategoryThree}>Bike</Link>
+                                <Link alt={value  === 'bike'} onClick={()=>setValue('bike')}>Bike</Link>
                             </Li>
                         </LeftSide>
                         <RightSide>
@@ -101,20 +112,7 @@ function Layout({setSelectedImg, setShow, setItem}){
                         </RightSide>
                     </Nav>
                     <Gallery>
-                        <Photos>
-                    
-                            {
-                            results.map((item)=>{
-                                return <Img src={item.cover_photo.urls.small}
-                                        key={item.id}
-                                        onClick={()=>{setSelectedImg(item.cover_photo.urls.small);
-                                             setShow(true); setItem(item.id)}}
-                                                />
-                            })
-                            }
-                           
-                            
-                        </Photos>
+                        {photos ? photos : 'loading...' }
                     </Gallery>
                 </Container>
 

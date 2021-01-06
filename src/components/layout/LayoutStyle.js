@@ -4,17 +4,16 @@ export const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(30, 1fr);  
     background-color: #ddd;
-    // height: 1000px auto;
+    height: 100%;
 `
 
 export const Box1 = styled.div`
     grid-column: 1/-1;   
-    grid-row: 1;
+    grid-row: 1/-1;
     background-image: url('./images/background4.jpg'); 
     height: 660px;
     background-repeat: none;
     background-size: cover;
-    background-color: #ddd;
 
 `
 export const Box2 = styled.div`
@@ -22,7 +21,6 @@ export const Box2 = styled.div`
     grid-row: 1;
     background-repeat: none;
     background-size: cover;
-    background-color: #ddd;
     height: 100%;
     margin-top:60px;
     margin-bottom: 50px;
@@ -85,7 +83,7 @@ export const RightSide = styled.ul`
 
 export const Link = styled.a`
     text-decoration: none;
-    color: #ccc;
+    color: ${props=>props.alt ? 'seagreen' : '#ccc'};
     cursor: pointer;
     font-weight: 600;
     &:hover{
@@ -114,7 +112,6 @@ export const NavButton = styled.button`
     }
 
 `
-
 
 // banner area
 
@@ -174,7 +171,7 @@ export const Gift = styled.a`
     margin-left: 10px;
 
 `
-export const SearchArea = styled.div`
+export const Form = styled.div`
     margin-top: 20px;
     width: 100%;
     display: flex;
@@ -184,11 +181,14 @@ export const Input = styled.input`
     width: 100%;
     padding: 10px;
     outline: none;
-    border: 1px solid transparent;
+    border: 1px solid white;
     font-family: verdana;
-    font-weight: 500;
+    font-weight: 600;
+    color: seagreen;
     &:focus{
-        border: 5px solid seagreen;
+        border: 2px solid seagreen; 
+        font-family: verdana;
+        font-weight: 500;
     }
 `
 export const SearchButton = styled.button`
@@ -196,21 +196,27 @@ export const SearchButton = styled.button`
     padding:10px;
     background-color: whitesmoke;
     color: #cccc;
-    box-shadow: 0px 1px 1px 0px #eeee;
     outline: none; 
+    font-family: sans-serif;
     &:hover{
         border: 1px solid seagreen;
         background-color: seagreen;
         color: white;
+        padding:10px;
         transition: .5s;
+        outline: none; 
+    }
+    &:focus{
+        outline: none;
+        color: white;
+        background-color: seagreen;
+        border: 1px solid yellow;
+        padding: 11px;
+        transition: .1s;
         
     }
-    @media(max-width:800px){
-        padding:10px;   
-    }
-    @media (max-aspect-ratio: 1/1) and (max-width: 460px) {
-        padding: 9px;
-      }
+
+
 `
 
 // galary 
@@ -250,9 +256,8 @@ export const Photos = styled.div`
           min-width: 0;
         }
       }
-
-
 `
+
 export const Img = styled.img`
     background-repeat: none;
     background-size: cover;
@@ -266,21 +271,18 @@ export const Img = styled.img`
         transition: 0.2s;
     }  
     @media(max-width:360px){
-        // position: absolute;
         padding-left:10px;
        
     } 
 `
 
 export const SpinnerStyle = styled.div`
-      margin: 250px 0px 0px 650px;
-      z-index: 10;
+    margin: 250px 0px 0px 750px;
       @media (max-width: 800px) {
         margin: 200px 0px 0px 230px;
       }
-      @media (max-aspect-ratio: 1/1) and (max-width: 460px) {
+      @media (max-aspect-ratio: 1/1) and (max-width: 460px){
         margin: 250px 0px 0px 170px;
       }
-
 `
 
