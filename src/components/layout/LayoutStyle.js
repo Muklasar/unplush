@@ -96,7 +96,7 @@ export const Link = styled.a`
 
 export const NavButton = styled.button`
     border:1px solid #fff;
-    padding: 10px;
+    padding: 6px 10px;
     box-shadow: 1px, 2px #ddd;
     background-color: whitesmoke;
     border-radius: 5px;
@@ -276,13 +276,29 @@ export const Img = styled.img`
     } 
 `
 
+//fotter
+
+export const Footer = styled.div`
+    grid-column:1/-1;
+    color: white;
+    background:#999;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+
+
+//loading
+
 export const SpinnerStyle = styled.div`
-    margin: 250px 0px 0px 750px;
+    margin: 250px 0px 0px 650px;
       @media (max-width: 800px) {
         margin: 200px 0px 0px 230px;
       }
-      @media (max-aspect-ratio: 1/1) and (max-width: 460px){
-        margin: 250px 0px 0px 170px;
-      }
+    @media (max-aspect-ratio: 1/1) and (max-width: 460px){
+    margin: 250px 0px 0px 170px;
+    }
 `
 
