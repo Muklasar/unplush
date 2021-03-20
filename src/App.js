@@ -10,7 +10,7 @@ const App = () => {
   const [spinner, setSpinner ] = useState(true);
   const [selectedImg, setSelectedImg] = useState(null)
   const [show, setShow] = useState(true);
-  const [item, setItem] = useState(null)
+  const [item, setItem] = useState(null);
 
   useEffect(() => {
     setTimeout(() => setSpinner(false), 2000)

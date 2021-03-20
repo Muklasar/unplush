@@ -92,7 +92,7 @@ function Layout({ setSelectedImg, setShow, setItem }) {
                             <SearchButton>Search</SearchButton>
                         </SearchForm>
                     </TextArea>
-                    <Created href="https://www.instagram.com/iamuklasar/" target="blank">@Created by Muklasar Rahaman</Created>
+                    <Created href="https://github.com/Muklasar" target="blank">@Created by Muklasar Rahaman</Created>
                 </Banner>
                 <Container>
                     <Nav>
