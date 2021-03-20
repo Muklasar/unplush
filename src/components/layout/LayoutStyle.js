@@ -76,15 +76,16 @@ export const RightSide = styled.ul`
 
 export const Link = styled.a`
     text-decoration: none;
-    color: #ccc;
+    color: ${props=>props.alt ? 'green' : '#ccc'};
+    padding-bottom:5px;
+    border-bottom: ${props=>props.alt && '2px solid green'};
     cursor: pointer;
     font-weight: 600;
     &:hover{
         color: seagreen;
-        transition: .5s;
-        text-decoration: none;
+        transiton:.5s;
+        text-decoration:none;
     }
-
 `
 
 export const NavButton = styled.button`
@@ -153,14 +154,19 @@ export const Created = styled.a`
       position: absolute;
       top:450px;
       left:20px;
-      color:#fff
+      color:#fff;
+      cursor:pointer;
+      &:hover{
+        text-decoration: none;
+        color:tomato;
+      }
 `
 export const Gift = styled.a`
     color: yellow;
     margin-left: 10px;
 
 `
-export const SearchArea = styled.div`
+export const SearchForm = styled.form`
     margin-top: 20px;
     width: 100%;
     display: flex;
@@ -206,9 +212,11 @@ export const Nav = styled.div`
 `
 export const Gallery = styled.div`
     background-color: white;
+    width:auto;
     height: 700px auto;
     margin-top: 25px;
     margin-bottom: 20px;
+    text-align:center;
 `
 export const Photos = styled.div`
     display: flex;
@@ -229,8 +237,14 @@ export const Img = styled.img`
         padding: 5px;
         transition: 0.2s;
     }
-    
+    @media(max-width:480px){
+        width:400px;
+    }
 
+`
+export const NoResultText = styled.p`
+    color:tomato;
+    font-size:20px;
 
 `
 export const SpinnerStyle = styled.div`

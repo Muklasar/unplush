@@ -21,7 +21,7 @@ function ModalCommentBox({show, selectedImg, setSelectedImg, setShow, item}) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Card><img src={selectedImg}/></Card>
+          <Card><img src={selectedImg} alt="img.jpg"/></Card>
           <DiscussionEmbed
               shortname='unplush'
               config={
